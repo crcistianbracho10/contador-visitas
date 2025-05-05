@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Visitas - Canal C TV</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #1a1a1a; color: #fff; }
+        .contador { font-size: 50px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Visitas Del Canal</h1>
+    <p class="contador" id="visitCount">6,775,500</p>
+    <script>
+        function actualizarVisitas() {
+            let visitas = localStorage.getItem("contadorVisitas");
+            if (!visitas) visitas = 6775500; // Valor inicial
+            visitas = parseInt(visitas) + Math.floor(Math.random() * 2) + 1; // Suma 1 o 2 visitas
+            document.getElementById("visitCount").innerText = visitas.toLocaleString(); // Agrega comas
+            localStorage.setItem("contadorVisitas", visitas);
+        }
+        setInterval(actualizarVisitas, 1000); // Actualiza cada segundo
+    </script>
+</body>
+</html>
